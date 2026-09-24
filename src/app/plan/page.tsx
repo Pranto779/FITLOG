@@ -1,9 +1,12 @@
 import { Oswald } from "next/font/google";
-import React from "react";
+import TodaYcard from "./Today/page";
+import Savepage from "./savec/page";
+
 const oswald = Oswald({
   subsets: ["latin"],
 });
-const page = () => {
+
+const Planpage = () => {
   return (
     <div className="mx-auto container my-10">
       <div className="my-4">
@@ -36,8 +39,17 @@ const page = () => {
           <h2 className="mt-2 text-5xl font-bold text-white">190</h2>
         </div>
       </div>
+      <div>
+<div className="tabs tabs-box">
+  <input type="radio" name="my_tabs_6" className="tab" aria-label="Tab 1" />
+  <div className="tab-content bg-base-100 border-base-300 p-6"><TodaYcard></TodaYcard></div>
+
+  <input type="radio" name="my_tabs_6" className="tab" aria-label="Tab 2" defaultChecked />
+  <div className="tab-content bg-base-100 border-base-300 p-6"><Savepage></Savepage></div>
+</div>
+      </div>
     </div>
   );
 };
 
-export default page;
+export default Planpage;

@@ -20,7 +20,7 @@ const WorkOut = async () => {
           Twelve lifts covering every major muscle group.
         </p>
       </div>
-      <div className="grid grid-cols-3 gap-5 container mx-auto mt-5 ">
+      <div className="container mx-auto mt-5 grid grid-cols-1 gap-5 px-4 sm:grid-cols-2 lg:grid-cols-3">
         {datas.map((data, ind) => (
           <Homepage data={data} key={ind}></Homepage>
         ))}

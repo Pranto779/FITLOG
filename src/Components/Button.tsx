@@ -8,9 +8,7 @@ import { CiBookmark } from "react-icons/ci";
 
 const Button = ({exc}:{exc:IExercise}) => {
   const { save, setsave, add, setadd } = useContext(AppContext);
-  console.log(save);
-  console.log(add);
-  
+
   
   return (
     <div>
