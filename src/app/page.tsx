@@ -1,12 +1,32 @@
-import Banner from '@/Components/Banner';
-import React from 'react';
+import Banner from "@/Components/Banner";
+import Homepage from "@/Components/Homepage";
+import GetData from "@/Data";
 
-const page = () => {
+
+
+
+
+const WorkOut = async () => {
+  const datas = await GetData();
+
   return (
     <div>
-     <Banner></Banner>
+      <Banner></Banner>
+      <div className="mx-auto container px-1 my-10">
+        <h2 className="{`${oswald.className} text-3xl `} font-bold">
+          THE LIBRARY
+        </h2>
+        <p className="text-md text-slate-400">
+          Twelve lifts covering every major muscle group.
+        </p>
+      </div>
+      <div className="grid grid-cols-3 gap-5 container mx-auto mt-5 ">
+        {datas.map((data, ind) => (
+          <Homepage data={data} key={ind}></Homepage>
+        ))}
+      </div>
     </div>
   );
 };
 
-export default page;
+export default WorkOut;

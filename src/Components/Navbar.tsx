@@ -1,14 +1,15 @@
-import Link from 'next/link';
+
 import React from 'react';
 import logo from '@/assets/logo.png'
 import Image from 'next/image';
+import Navlink from './Navlink';
+
+
 
 const Navbar = () => {
-
-  
     return (
-        <div className='border border-slate-800'>
-            <div className="navbar container mx-auto bg-base-100 shadow-sm ">
+        <div className='border border-slate-800 py-2'>
+            <div className="navbar container mx-auto bg-black shadow-sm ">
   <div className="navbar-start">
     <div className="dropdown">
       <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -17,8 +18,7 @@ const Navbar = () => {
       <ul
         tabIndex={-1}
         className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
-   <li><Link href={''}>Workouts</Link></li>
-    <li><Link href={''}>My Plan</Link></li>
+   <Navlink></Navlink>
       </ul>
     </div>
     <a className=" flex gap-2 text-xl"> 
@@ -33,8 +33,7 @@ const Navbar = () => {
   </div>
   <div className="navbar-center hidden lg:flex">
     <ul className="flex  gap-3 items-center px-1 ">
-  <li className=' rounded-4xl text-slate-300 px-3 py-1 t text-sm hover:text-[#C2F800] hover:bg-[#cee6781a]'><Link href={''}>Workouts</Link></li>
-    <li className=' rounded-4xl text-slate-300 hover:bg-[#cee6781a] px-3 py-1 t text-sm hover:text-[#C2F800]' ><Link href={''}>My Plan</Link></li>
+ <Navlink></Navlink>
     </ul>
   </div>
   <div className="navbar-end flex gap-2 items-center ">

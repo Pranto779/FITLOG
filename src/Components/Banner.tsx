@@ -9,8 +9,8 @@ const oswald = Oswald({
 
 const Banner = () => {
   return (
-    <section className="container mx-auto mt-6 px-4 sm:mt-8 lg:mt-10">
-      <div className="flex flex-col items-center gap-10 overflow-hidden rounded-2xl border border-slate-700 bg-slate-900 px-6 py-10 sm:px-10 sm:py-14 lg:flex-row lg:px-12 lg:py-10">
+    <section className="container mx-auto mt-6  sm:mt-8 lg:mt-5">
+      <div className="flex flex-col items-center gap-10 overflow-hidden rounded-2xl border border-slate-700 bg-gray-900 px-6 py-10 sm:px-10 sm:py-14 lg:flex-row lg:px-12 lg:py-10">
         <div className="w-full space-y-5 text-center lg:w-[60%] lg:text-left">
           <p className="font-semibold tracking-wider text-[#C2F800]">
             WORKOUT LIBRARY
