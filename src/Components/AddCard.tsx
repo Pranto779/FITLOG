@@ -1,7 +1,9 @@
 import { IExercise } from "@/app/IExercise";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import { CiStar } from "react-icons/ci";
+import { IoTimeOutline } from "react-icons/io5";
+import { PiFireSimpleLight } from "react-icons/pi";
 
 interface DataProps {
   carddata: IExercise;
@@ -11,7 +13,6 @@ interface DataProps {
 const AddCard = ({ carddata, onRemove }: DataProps) => {
   return (
     <div className="flex items-center gap-4 rounded-xl border border-slate-800 bg-[#111318] p-3 text-white">
-
       <Image
         src={carddata.image}
         alt="image"
@@ -21,21 +22,15 @@ const AddCard = ({ carddata, onRemove }: DataProps) => {
       />
 
       <div className="flex-1">
+        <h3 className="text-sm font-bold uppercase">{carddata.name}</h3>
 
-        <h3 className="text-sm font-bold uppercase">
-          {carddata.name}
-        </h3>
-
-        <p className="text-xs text-slate-400">
-          {carddata.equipment}
-        </p>
+        <p className="text-xs text-slate-400">{carddata.equipment}</p>
 
         <div className="mt-1 flex gap-3 text-xs text-slate-400">
-          <span>◷ {carddata.duration}</span>
-          <span>🔥 {carddata.caloriesBurned}</span>
-          <span>⭐ {carddata.rating}</span>
+          <span className="flex">  <IoTimeOutline size={18} />{carddata.duration}</span>
+         <span className="flex"><PiFireSimpleLight size={18} /> {carddata.caloriesBurned}</span>
+          <span className="flex"> <CiStar size={18} /> {carddata.rating}</span>
         </div>
-
       </div>
 
       <Link href={`/${carddata.id}`}>
@@ -48,13 +43,9 @@ const AddCard = ({ carddata, onRemove }: DataProps) => {
         ✓ Mark as Done
       </button>
 
-      <button
-        onClick={() => onRemove(carddata.id)}
-        className="text-slate-500"
-      >
+      <button onClick={() => onRemove(carddata.id)} className="text-slate-500">
         ×
       </button>
-
     </div>
   );
 };

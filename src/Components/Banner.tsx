@@ -1,4 +1,3 @@
-import React from "react";
 import Image from "next/image";
 import banner from "@/assets/banner.png";
 import { Oswald } from "next/font/google";

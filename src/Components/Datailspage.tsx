@@ -1,8 +1,7 @@
+import { IExercise } from "@/app/IExercise";
+import Image from "next/image";
 
-import { IExercise } from '@/app/IExercise';
-import Image from 'next/image';
-import React from 'react';
-import Button from './Button';
+import Button from "./Button";
 
 interface DatailspageProps {
   exercise: IExercise;
@@ -11,10 +10,7 @@ interface DatailspageProps {
 const Datailspage = ({ exercise }: DatailspageProps) => {
   return (
     <div className="rounded-3xl border border-[#111827] bg-[#060B14] p-6 text-white container mx-auto my-10">
-
       <div className="grid gap-8 lg:grid-cols-2 items-center">
-
-       
         <div className="relative h-[700px]  overflow-hidden rounded-2xl py-20">
           <Image
             src={exercise.image}
@@ -24,15 +20,11 @@ const Datailspage = ({ exercise }: DatailspageProps) => {
           />
         </div>
 
-      
         <div>
-
-       
           <h1 className="text-4xl font-black uppercase tracking-wide">
             {exercise.name}
           </h1>
 
-        
           <p className="mt-3 text-sm leading-6 text-gray-400">
             {exercise.description}
           </p>
@@ -49,20 +41,19 @@ const Datailspage = ({ exercise }: DatailspageProps) => {
           </div>
 
           <div className="mt-6 overflow-hidden rounded-2xl border border-[#1B2433] bg-[#0A1221]">
-
             {[
-              ['EQUIPMENT', exercise.equipment],
-              ['DIFFICULTY', exercise.difficulty],
-              ['SETS', exercise.sets],
-              ['REPS', exercise.reps],
-              ['DURATION', `${exercise.duration} min`],
-              ['CALORIES', `${exercise.caloriesBurned} kcal`],
-              ['RATING', exercise.rating],
+              ["EQUIPMENT", exercise.equipment],
+              ["DIFFICULTY", exercise.difficulty],
+              ["SETS", exercise.sets],
+              ["REPS", exercise.reps],
+              ["DURATION", `${exercise.duration} min`],
+              ["CALORIES", `${exercise.caloriesBurned} kcal`],
+              ["RATING", exercise.rating],
             ].map(([label, value], index) => (
               <div
                 key={label}
                 className={`grid grid-cols-2 px-5 py-3 ${
-                  index !== 6 ? 'border-b border-[#182233]' : ''
+                  index !== 6 ? "border-b border-[#182233]" : ""
                 }`}
               >
                 <span className="text-[11px] tracking-widest text-gray-500">
@@ -74,12 +65,10 @@ const Datailspage = ({ exercise }: DatailspageProps) => {
                 </span>
               </div>
             ))}
-
           </div>
 
-          {/* Instructions */}
+         
           <div className="mt-6">
-
             <h3 className="mb-3 text-lg font-bold uppercase tracking-wide">
               Instructions
             </h3>
@@ -92,12 +81,11 @@ const Datailspage = ({ exercise }: DatailspageProps) => {
                 </li>
               ))}
             </ol>
-
           </div>
 
-          {/* Buttons */}
-    
-<Button exc={exercise}></Button>
+        
+
+          <Button exc={exercise}></Button>
         </div>
       </div>
     </div>
@@ -105,4 +93,3 @@ const Datailspage = ({ exercise }: DatailspageProps) => {
 };
 
 export default Datailspage;
-

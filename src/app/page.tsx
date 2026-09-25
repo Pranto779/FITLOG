@@ -2,10 +2,6 @@ import Banner from "@/Components/Banner";
 import Homepage from "@/Components/Homepage";
 import GetData from "@/Data";
 
-
-
-
-
 const WorkOut = async () => {
   const datas = await GetData();
 

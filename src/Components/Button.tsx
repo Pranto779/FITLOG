@@ -11,12 +11,15 @@ const Button = ({ exc }: { exc: IExercise }) => {
   const { save, setsave, add, setadd } = useContext(AppContext);
 
   const handleAdd = () => {
-    const alreadyAdded = add.some(
-      (item) => item.id === exc.id
-    );
+    const alreadyAdded = add.some((item) => item.id === exc.id);
 
     if (alreadyAdded) {
       toast.warning(`${exc.name} is already added!`);
+      return;
+    }
+
+    if (add.length >= 5) {
+      toast.warning("You can add maximum 5 exercises!");
       return;
     }
 
@@ -26,12 +29,15 @@ const Button = ({ exc }: { exc: IExercise }) => {
   };
 
   const handleSave = () => {
-    const alreadySaved = save.some(
-      (item) => item.id === exc.id
-    );
+    const alreadySaved = save.some((item) => item.id === exc.id);
 
     if (alreadySaved) {
       toast.warning(`${exc.name} is already Saved!`);
+      return;
+    }
+
+    if (save.length >= 5) {
+      toast.warning("You can save maximum 5 exercises!");
       return;
     }
 
@@ -44,18 +50,26 @@ const Button = ({ exc }: { exc: IExercise }) => {
     <div>
       <div className="mt-6 flex gap-3">
         <button
+          disabled={add.length >= 5}
           onClick={handleAdd}
-          className="flex items-center gap-1 rounded-xl bg-[#D7FF00] px-6 py-3 font-medium text-black transition hover:opacity-90"
+          className={`flex items-center gap-1 rounded-xl px-6 py-3 font-medium transition ${
+            add.length >= 5
+              ? "cursor-not-allowed bg-gray-700 text-gray-400"
+              : "bg-[#D7FF00] text-black hover:opacity-90"
+          }`}
         >
           <AiOutlineCalendar />
-          Add to today&apos;s plan
+
+         Add to today&apos;s plan
         </button>
 
         <button
+          
           onClick={handleSave}
-          className="flex items-center gap-1 rounded-xl border border-[#293142] px-6 py-3 text-gray-300 transition hover:bg-[#111827]"
+          className={`flex items-center gap-1 rounded-xl border px-6 py-3 transition  }`}
         >
           <CiBookmark />
+
           Save for later
         </button>
       </div>

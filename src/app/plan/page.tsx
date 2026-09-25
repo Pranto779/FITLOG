@@ -49,8 +49,6 @@ const Planpage = () => {
 
   return (
     <div className="container mx-auto my-6 px-4 sm:my-8 md:my-10">
-
-      {/* Header */}
       <div className="mb-8">
         <h1
           className={`${oswald.className} text-3xl font-bold text-white sm:text-4xl`}
@@ -63,10 +61,7 @@ const Planpage = () => {
         </p>
       </div>
 
-      {/* Stats */}
       <div className="grid grid-cols-1 overflow-hidden rounded-2xl border border-slate-800 bg-[#0A1020] sm:grid-cols-3">
-
-        {/* Exercises */}
         <div className="border-b border-slate-800 p-6 text-center sm:border-b-0 sm:border-r">
           <p className="text-sm uppercase tracking-wider text-gray-400">
             Exercises
@@ -77,7 +72,6 @@ const Planpage = () => {
           </h2>
         </div>
 
-        {/* Minutes */}
         <div className="border-b border-slate-800 p-6 text-center sm:border-b-0 sm:border-r">
           <p className="text-sm uppercase tracking-wider text-gray-400">
             Minutes
@@ -88,7 +82,6 @@ const Planpage = () => {
           </h2>
         </div>
 
-        {/* Calories */}
         <div className="p-6 text-center">
           <p className="text-sm uppercase tracking-wider text-gray-400">
             Calories
@@ -100,11 +93,8 @@ const Planpage = () => {
         </div>
       </div>
 
-      {/* Tabs */}
       <div className="mt-6 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-
         <div className="inline-flex w-full rounded-xl border border-slate-800 bg-[#0B1120] p-1 sm:w-auto">
-
           <button
             onClick={() => setActiveTab("today")}
             className={`flex-1 rounded-lg px-6 py-2 text-xs transition-all duration-200 sm:flex-none ${
@@ -126,15 +116,10 @@ const Planpage = () => {
           >
             Saved
           </button>
-
         </div>
-<div className="flex items-center gap-2">
- <p className="text-sm text-slate-500 px-2 py-1 rounded-md">Sort by</p>
-
-        
-      
+        <div className="flex items-center gap-2">
+          <p className="text-sm text-slate-500 px-2 py-1 rounded-md">Sort by</p>
           <select
-        
             value={sortBy}
             onChange={(e) => setSortBy(e.target.value)}
             className="w-full rounded-lg border border-slate-800 bg-[#0B1120] px-3 py-2 text-sm text-slate-600 outline-none transition hover:border-slate-600 sm:w-auto"
@@ -143,20 +128,16 @@ const Planpage = () => {
             <option value="calories"> Calories</option>
             <option value="rating"> Rating</option>
           </select>
-        )
+          
         </div>
       </div>
 
-      {/* Cards */}
       <div className="mt-6">
-
-        {/* TODAY */}
         {activeTab === "today" &&
           (add.length > 0 ? (
             <TodaYcard exercises={sortedExercises} />
           ) : (
             <div className="flex min-h-[400px] flex-col items-center justify-center rounded-2xl border border-slate-800 px-4 text-center sm:min-h-[450px]">
-
               <h2
                 className={`${oswald.className} text-3xl font-bold text-white`}
               >
@@ -172,17 +153,14 @@ const Planpage = () => {
                   Go to workout
                 </button>
               </Link>
-
             </div>
           ))}
 
-        {/* SAVED */}
         {activeTab === "saved" &&
           (save.length > 0 ? (
             <Savepage exercises={sortedExercises} />
           ) : (
             <div className="flex min-h-[400px] flex-col items-center justify-center rounded-2xl border border-slate-800 px-4 text-center sm:min-h-[450px]">
-
               <h2
                 className={`${oswald.className} text-3xl font-bold text-white`}
               >
@@ -198,10 +176,8 @@ const Planpage = () => {
                   Go to workout
                 </button>
               </Link>
-
             </div>
           ))}
-
       </div>
     </div>
   );

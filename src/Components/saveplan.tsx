@@ -5,9 +5,11 @@ import { AppContext } from "@/Context/DataContext";
 import Image from "next/image";
 import Link from "next/link";
 import React, { useContext } from "react";
-import { FaStar } from "react-icons/fa";
+import { CiStar } from "react-icons/ci";
+
 import { IoClose, IoTimeOutline } from "react-icons/io5";
-import { MdLocalFireDepartment } from "react-icons/md";
+
+import { PiFireSimpleLight } from "react-icons/pi";
 
 interface Saveprops {
   savedata: IExercise;
@@ -26,10 +28,10 @@ const Saveplan = ({ savedata }: Saveprops) => {
     <div className="w-full rounded-2xl border border-[#1A2234] bg-[#0B1220] px-5 py-4">
       <div className="flex items-center justify-between">
 
-        {/* Left Side */}
+       
         <div className="flex items-center gap-4">
 
-          {/* Image */}
+         
           <div className="h-18 w-24 overflow-hidden rounded-lg bg-slate-700">
             <Image
               src={savedata.image}
@@ -40,7 +42,7 @@ const Saveplan = ({ savedata }: Saveprops) => {
             />
           </div>
 
-          {/* Content */}
+        
           <div>
             <h3 className="text-sm font-extrabold uppercase tracking-wide text-white">
               {savedata.name}
@@ -50,23 +52,23 @@ const Saveplan = ({ savedata }: Saveprops) => {
               {savedata.equipment}
             </p>
 
-            <div className="mt-2 flex items-center gap-4">
+            <div className="mt-2 flex items-center gap-4 text-slate-400">
 
-              {/* Time */}
-              <div className="flex items-center gap-1 text-[11px] text-slate-400">
-                <IoTimeOutline />
+            
+              <div className="flex items-center gap-1 text-[11px] ">
+                <IoTimeOutline size={18} />
                 <span>{savedata.duration}</span>
               </div>
 
-              {/* Calories */}
-              <div className="flex items-center gap-1 text-[11px] text-lime-400">
-                <MdLocalFireDepartment />
+            
+              <div className="flex items-center gap-1 text-[11px]">
+               <PiFireSimpleLight size={18} />
                 <span>{savedata.caloriesBurned}</span>
               </div>
 
-              {/* Rating */}
-              <div className="flex items-center gap-1 text-[11px] text-yellow-400">
-                <FaStar />
+             
+              <div className="flex items-center gap-1 text-[11px] ">
+                 <CiStar size={18} />
                 <span>{savedata.rating}</span>
               </div>
 
@@ -74,8 +76,8 @@ const Saveplan = ({ savedata }: Saveprops) => {
           </div>
         </div>
 
-        {/* Right Side */}
-        <div className="flex items-center gap-4">
+       
+        <div className="flex items-center gap-4 ">
 
         <Link href={`/${savedata.id}`}>
           <button
@@ -86,11 +88,10 @@ const Saveplan = ({ savedata }: Saveprops) => {
           </button>
         </Link>
 
-          {/* Remove */}
           <button
             type="button"
             onClick={handleRemove}
-            className="flex h-8 w-8 items-center justify-center text-slate-500 transition hover:text-red-400"
+            className="flex h-8 w-8 items-center justify-center text-slate-500 transition "
           >
             <IoClose size={18} />
           </button>
