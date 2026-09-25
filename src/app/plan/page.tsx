@@ -49,26 +49,21 @@ const Planpage = () => {
 
   return (
     <div className="container mx-auto my-6 px-4 sm:my-8 md:my-10">
-      
-      {/* Header */}
-      <div className="mb-6 sm:mb-8">
+      <div className="mb-8">
         <h1
           className={`${oswald.className} text-3xl font-bold text-white sm:text-4xl`}
         >
           MY PLAN
         </h1>
 
-        <p className="mt-2 max-w-xl text-sm leading-6 text-gray-400 sm:text-base">
+        <p className="mt-2 text-sm text-gray-400 sm:text-base">
           Manage your workout plan and saved exercises.
         </p>
       </div>
 
-      {/* Stats */}
       <div className="grid grid-cols-1 overflow-hidden rounded-2xl border border-slate-800 bg-[#0A1020] sm:grid-cols-3">
-        
-        {/* Exercises */}
-        <div className="border-b border-slate-800 p-5 text-center sm:border-b-0 sm:border-r sm:p-6">
-          <p className="text-xs uppercase tracking-wider text-gray-400 sm:text-sm">
+        <div className="border-b border-slate-800 p-6 text-center sm:border-b-0 sm:border-r">
+          <p className="text-sm uppercase tracking-wider text-gray-400">
             Exercises
           </p>
 
@@ -77,9 +72,8 @@ const Planpage = () => {
           </h2>
         </div>
 
-        {/* Minutes */}
-        <div className="border-b border-slate-800 p-5 text-center sm:border-b-0 sm:border-r sm:p-6">
-          <p className="text-xs uppercase tracking-wider text-gray-400 sm:text-sm">
+        <div className="border-b border-slate-800 p-6 text-center sm:border-b-0 sm:border-r">
+          <p className="text-sm uppercase tracking-wider text-gray-400">
             Minutes
           </p>
 
@@ -88,9 +82,8 @@ const Planpage = () => {
           </h2>
         </div>
 
-        {/* Calories */}
-        <div className="p-5 text-center sm:p-6">
-          <p className="text-xs uppercase tracking-wider text-gray-400 sm:text-sm">
+        <div className="p-6 text-center">
+          <p className="text-sm uppercase tracking-wider text-gray-400">
             Calories
           </p>
 
@@ -100,15 +93,11 @@ const Planpage = () => {
         </div>
       </div>
 
-      {/* Tabs + Sort */}
-      <div className="mt-6 flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
-
-        {/* Tabs */}
-        <div className="flex w-full rounded-xl border border-slate-800 bg-[#0B1120] p-1 md:w-auto">
-          
+      <div className="mt-6 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+        <div className="inline-flex w-full rounded-xl border border-slate-800 bg-[#0B1120] p-1 sm:w-auto">
           <button
             onClick={() => setActiveTab("today")}
-            className={`flex-1 rounded-lg px-4 py-2.5 text-xs transition-all duration-200 sm:px-6 md:flex-none ${
+            className={`flex-1 rounded-lg px-6 py-2 text-xs transition-all duration-200 sm:flex-none ${
               activeTab === "today"
                 ? "bg-[#1C2434] text-white shadow-sm"
                 : "text-slate-500 hover:text-slate-300"
@@ -119,7 +108,7 @@ const Planpage = () => {
 
           <button
             onClick={() => setActiveTab("saved")}
-            className={`flex-1 rounded-lg px-4 py-2.5 text-xs transition-all duration-200 sm:px-6 md:flex-none ${
+            className={`flex-1 rounded-lg px-6 py-2 text-xs transition-all duration-200 sm:flex-none ${
               activeTab === "saved"
                 ? "bg-[#1C2434] text-white shadow-sm"
                 : "text-slate-500 hover:text-slate-300"
@@ -127,46 +116,35 @@ const Planpage = () => {
           >
             Saved
           </button>
-
         </div>
-
-        {/* Sort */}
-        <div className="flex w-full items-center justify-between gap-2 sm:justify-end md:w-auto">
-          
-          <p className="rounded-md px-1 py-1 text-xs text-slate-500 sm:px-2 sm:text-sm">
-            Sort by
-          </p>
-
+        <div className="flex items-center gap-2 grid grid-cols-1  md:grid-cols-2">
+          <p className="text-sm text-slate-500 px-2 py-1 rounded-md">Sort by</p>
           <select
             value={sortBy}
             onChange={(e) => setSortBy(e.target.value)}
-            className="w-full rounded-lg border border-slate-800 bg-[#0B1120] px-3 py-2.5 text-sm text-slate-300 outline-none transition hover:border-slate-600 sm:w-auto"
+           className="w-full rounded-lg border border-slate-800 bg-[#0B1120] px-3 py-2 text-sm text-slate-600 outline-none transition hover:border-slate-600 sm:w-auto md:w-full lg:w-auto"
           >
-            <option value="duration">Duration</option>
-            <option value="calories">Calories</option>
-            <option value="rating">Rating</option>
+            <option value="duration"> Duration</option>
+            <option value="calories"> Calories</option>
+            <option value="rating"> Rating</option>
           </select>
-
+          
         </div>
       </div>
 
-      {/* Content */}
       <div className="mt-6">
-
-        {/* Today */}
         {activeTab === "today" &&
           (add.length > 0 ? (
             <TodaYcard exercises={sortedExercises} />
           ) : (
-            <div className="flex min-h-[350px] flex-col items-center justify-center rounded-2xl border border-slate-800 px-5 text-center sm:min-h-[450px]">
-
+            <div className="flex min-h-[400px] flex-col items-center justify-center rounded-2xl border border-slate-800 px-4 text-center sm:min-h-[450px]">
               <h2
-                className={`${oswald.className} text-2xl font-bold text-white sm:text-3xl`}
+                className={`${oswald.className} text-3xl font-bold text-white`}
               >
                 Nothing Here Yet
               </h2>
 
-              <p className="mt-2 max-w-md text-sm leading-6 text-slate-500">
+              <p className="mt-2 text-sm text-slate-500">
                 Browse the library and add a lift to get today moving.
               </p>
 
@@ -175,24 +153,21 @@ const Planpage = () => {
                   Go to workout
                 </button>
               </Link>
-
             </div>
           ))}
 
-        {/* Saved */}
         {activeTab === "saved" &&
           (save.length > 0 ? (
             <Savepage exercises={sortedExercises} />
           ) : (
-            <div className="flex min-h-[350px] flex-col items-center justify-center rounded-2xl border border-slate-800 px-5 text-center sm:min-h-[450px]">
-
+            <div className="flex min-h-[400px] flex-col items-center justify-center rounded-2xl border border-slate-800 px-4 text-center sm:min-h-[450px]">
               <h2
-                className={`${oswald.className} text-2xl font-bold text-white sm:text-3xl`}
+                className={`${oswald.className} text-3xl font-bold text-white`}
               >
                 Nothing Here Yet
               </h2>
 
-              <p className="mt-2 max-w-md text-sm leading-6 text-slate-500">
+              <p className="mt-2 text-sm text-slate-500">
                 Browse the library and add a lift to get today moving.
               </p>
 
@@ -201,10 +176,8 @@ const Planpage = () => {
                   Go to workout
                 </button>
               </Link>
-
             </div>
           ))}
-
       </div>
     </div>
   );

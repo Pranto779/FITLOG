@@ -9,9 +9,11 @@ interface SavepageProps {
 
 const Savepage = ({ exercises }: SavepageProps) => {
   return (
-    <div className="space-y-4">
+    <div className="w-full space-y-3 sm:space-y-4">
       {exercises.map((item) => (
-        <Saveplan key={item.id} savedata={item} />
+        <div key={item.id} className="w-full">
+          <Saveplan savedata={item} />
+        </div>
       ))}
     </div>
   );

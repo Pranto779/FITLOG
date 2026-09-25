@@ -12,40 +12,60 @@ interface DataProps {
 
 const AddCard = ({ carddata, onRemove }: DataProps) => {
   return (
-    <div className="flex items-center gap-4 rounded-xl border border-slate-800 bg-[#111318] p-3 text-white">
+    <div className="flex flex-col gap-4 rounded-xl border border-slate-800 bg-[#111318] p-3 text-white sm:flex-row sm:items-center">
       <Image
         src={carddata.image}
-        alt="image"
+        alt={carddata.name}
         width={90}
         height={90}
-        className="h-20 w-23 rounded-lg object-cover"
+        className="h-24 w-full rounded-lg object-cover sm:h-20 sm:w-24"
       />
 
-      <div className="flex-1">
-        <h3 className="text-sm font-bold uppercase">{carddata.name}</h3>
+      <div className="min-w-0 flex-1">
+        <h3 className="truncate text-sm font-bold uppercase">
+          {carddata.name}
+        </h3>
 
-        <p className="text-xs text-slate-400">{carddata.equipment}</p>
+        <p className="mt-1 truncate text-xs text-slate-400">
+          {carddata.equipment}
+        </p>
 
-        <div className="mt-1 flex gap-3 text-xs text-slate-400">
-          <span className="flex">  <IoTimeOutline size={18} />{carddata.duration}</span>
-         <span className="flex"><PiFireSimpleLight size={18} /> {carddata.caloriesBurned}</span>
-          <span className="flex"> <CiStar size={18} /> {carddata.rating}</span>
+        <div className="mt-2 flex flex-wrap gap-3 text-xs text-slate-400">
+          <span className="flex items-center gap-1">
+            <IoTimeOutline size={18} />
+            {carddata.duration}
+          </span>
+
+          <span className="flex items-center gap-1">
+            <PiFireSimpleLight size={18} />
+            {carddata.caloriesBurned}
+          </span>
+
+          <span className="flex items-center gap-1">
+            <CiStar size={18} />
+            {carddata.rating}
+          </span>
         </div>
       </div>
 
-      <Link href={`/${carddata.id}`}>
-        <button className="rounded-full border border-slate-700 px-4 py-2 text-xs">
-          View Details
+      <div className="flex w-full flex-wrap items-center gap-2 sm:w-auto sm:flex-nowrap">
+        <Link href={`/${carddata.id}`} className="flex-1 sm:flex-none">
+          <button className="w-full rounded-full border border-slate-700 px-4 py-2 text-xs whitespace-nowrap">
+            View Details
+          </button>
+        </Link>
+
+        <button className="flex-1 rounded-full bg-[#c2f800] px-4 py-2 text-xs font-semibold whitespace-nowrap text-black sm:flex-none">
+          ✓ Mark as Done
         </button>
-      </Link>
 
-      <button className="rounded-full bg-[#c2f800] px-4 py-2 text-xs font-semibold text-black">
-        ✓ Mark as Done
-      </button>
-
-      <button onClick={() => onRemove(carddata.id)} className="text-slate-500">
-        ×
-      </button>
+        <button
+          onClick={() => onRemove(carddata.id)}
+          className="rounded-full px-2 py-2 text-lg text-slate-500 transition hover:text-white"
+        >
+          ×
+        </button>
+      </div>
     </div>
   );
 };
