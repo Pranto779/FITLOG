@@ -3,8 +3,8 @@
 import { AppContext } from "@/Context/DataContext";
 import { Oswald } from "next/font/google";
 import { useContext, useState } from "react";
-import Savepage from "./savec/page";
-import TodaYcard from "./today/page";
+import Savepage from "./Savepage";
+import TodaYcard from "./Todaypage";
 import Link from "next/link";
 
 const oswald = Oswald({
