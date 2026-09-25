@@ -1,13 +1,18 @@
 "use client";
-import Saveplan from "@/Components/saveplan";
-import { AppContext } from "@/Context/DataContext";
-import React, { useContext } from "react";
 
-const Savepage = () => {
-  const { save } = useContext(AppContext);
+import { IExercise } from "@/app/IExercise";
+import Saveplan from "@/Components/saveplan";
+
+interface SavepageProps {
+  exercises: IExercise[];
+}
+
+const Savepage = ({ exercises }: SavepageProps) => {
   return (
-    <div>
-      {save.map((sa, ind) =><Saveplan key={ind} savedata={sa}></Saveplan> )}
+    <div className="space-y-4">
+      {exercises.map((item) => (
+        <Saveplan key={item.id} savedata={item} />
+      ))}
     </div>
   );
 };

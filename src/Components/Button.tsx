@@ -22,7 +22,7 @@ const Button = ({ exc }: { exc: IExercise }) => {
 
     setadd((prev) => [...prev, exc]);
 
-    toast.success(`${exc.name} Exercise added successfully!`);
+    toast.success(`${exc.name} Add To Today's plan`);
   };
 
   const handleSave = () => {
@@ -31,13 +31,13 @@ const Button = ({ exc }: { exc: IExercise }) => {
     );
 
     if (alreadySaved) {
-      toast.warning(`${exc.name} is already saved!`);
+      toast.warning(`${exc.name} is already Saved!`);
       return;
     }
 
     setsave((prev) => [...prev, exc]);
 
-    toast.success(`${exc.name} Exercise saved successfully!`);
+    toast.success(`${exc.name} Add To Saved Plan!`);
   };
 
   return (

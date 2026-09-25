@@ -2,23 +2,24 @@
 
 import AddCard from "@/Components/AddCard";
 import { AppContext } from "@/Context/DataContext";
-import React, { useContext } from "react";
+import { IExercise } from "@/app/IExercise";
+import { useContext } from "react";
 
-const TodaYcard = () => {
-  const { add, setadd } = useContext(AppContext);
+interface Props {
+  exercises: IExercise[];
+}
+
+const TodaYcard = ({ exercises }: Props) => {
+  const { setadd } = useContext(AppContext);
 
   const handleRemove = (id: number) => {
     setadd((prev) => prev.filter((item) => item.id !== id));
   };
 
   return (
-    <div>
-      {add.map((ad, ind) => (
-        <AddCard
-          key={ind}
-          carddata={ad}
-          onRemove={handleRemove}
-        />
+    <div className="space-y-4">
+      {exercises.map((item) => (
+        <AddCard key={item.id} carddata={item} onRemove={handleRemove} />
       ))}
     </div>
   );
